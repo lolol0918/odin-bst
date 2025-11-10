@@ -86,4 +86,24 @@ export class Tree {
 
     return root;
   }
+
+  find(value) {
+    return this._findRec(this.root, value);
+  }
+
+  _findRec(node, value) {
+    if (node === null) return null;
+
+    if (value > node.data) {
+      node = this._findRec(node.right, value);
+      return node;
+    }
+
+    if (value < node.data) {
+      node = this._findRec(node.left, value);
+      return node;
+    }
+
+    return node;
+  }
 }
