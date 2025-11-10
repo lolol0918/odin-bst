@@ -11,4 +11,7 @@ function randomArray(size, max = 100) {
 const tree = new Tree([
   5, 81, 44, 28, 33, 11, 83, 24, 31, 19, 10, 71, 34, 19, 51,
 ]);
+
+tree.insert(0);
+tree.insert(99);
 prettyPrint(tree.root);

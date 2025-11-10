@@ -29,4 +29,29 @@ export class Tree {
 
     return node;
   }
+
+  insert(value) {
+    const node = this.root;
+
+    if (node === null) {
+      this.root = new Node(value);
+      return;
+    } else {
+      return this._insertRec(node, value);
+    }
+  }
+
+  _insertRec(node, value) {
+    if (node === null) return new Node(value);
+
+    if (value > node.data) {
+      node.right = this._insertRec(node.right, value);
+    }
+
+    if (value < node.data) {
+      node.left = this._insertRec(node.left, value);
+    }
+
+    return node;
+  }
 }
