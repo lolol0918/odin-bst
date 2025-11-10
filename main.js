@@ -9,9 +9,8 @@ function randomArray(size, max = 100) {
 // STEP 1: Create tree from random numbers < 100
 
 const tree = new Tree([
-  5, 81, 44, 28, 33, 11, 83, 24, 31, 19, 10, 71, 34, 19, 51,
+  42, 15, 89, 7, 63, 18, 27, 90, 54, 31, 73, 8, 44, 12, 66,
 ]);
-
-tree.insert(0);
-tree.insert(99);
+tree.remove(73);
+tree.remove(15);
 prettyPrint(tree.root);

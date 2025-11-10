@@ -54,4 +54,36 @@ export class Tree {
 
     return node;
   }
+
+  remove(value) {
+    return this._removeRec(this.root, value);
+  }
+
+  _removeRec(root, value) {
+    if (root === null) return root;
+
+    if (value > root.data) {
+      root.right = this._removeRec(root.right, value);
+    } else if (value < root.data) {
+      root.left = this._removeRec(root.left, value);
+    } else {
+      if (root.left === null) {
+        return root.right;
+      }
+      if (root.right === null) {
+        return root.left;
+      } else {
+        let curr = root.right;
+
+        while (curr.left !== null) {
+          curr = curr.left;
+        }
+
+        root.data = curr.data;
+        root.right = this._removeRec(root.right, root.data);
+      }
+    }
+
+    return root;
+  }
 }
