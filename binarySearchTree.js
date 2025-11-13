@@ -106,4 +106,33 @@ export class Tree {
 
     return node;
   }
+
+  levelOrderForEach(callback) {
+    if (typeof callback !== "function") {
+      throw new Error("A callback function must be provided");
+    }
+
+    if (!this.root) return;
+
+    const res = [];
+
+    this.levelOrderForEachRecur(this.root, 0, res);
+
+    for (const level of res) {
+      for (const node of level) {
+        callback(node);
+      }
+    }
+  }
+
+  levelOrderForEachRecur(root, level, res) {
+    if (root === null) return;
+
+    if (res.length <= level) res.push([]);
+
+    res[level].push(root);
+
+    this.levelOrderForEachRecur(root.left, level + 1, res);
+    this.levelOrderForEachRecur(root.right, level + 1, res);
+  }
 }
