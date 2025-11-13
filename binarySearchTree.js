@@ -116,7 +116,7 @@ export class Tree {
 
     const res = [];
 
-    this.levelOrderForEachRecur(this.root, 0, res);
+    this._levelOrderForEachRecur(this.root, 0, res);
 
     for (const level of res) {
       for (const node of level) {
@@ -125,14 +125,14 @@ export class Tree {
     }
   }
 
-  levelOrderForEachRecur(root, level, res) {
+  _levelOrderForEachRecur(root, level, res) {
     if (root === null) return;
 
     if (res.length <= level) res.push([]);
 
     res[level].push(root);
 
-    this.levelOrderForEachRecur(root.left, level + 1, res);
-    this.levelOrderForEachRecur(root.right, level + 1, res);
+    this._levelOrderForEachRecur(root.left, level + 1, res);
+    this._levelOrderForEachRecur(root.right, level + 1, res);
   }
 }
