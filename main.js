@@ -35,3 +35,6 @@ console.log(tree.height(66));
 console.log(tree.height(42));
 
 console.log(tree.height(0));
+
+console.log(tree.depth(8));
+console.log(tree.depth(15));
