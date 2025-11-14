@@ -246,7 +246,7 @@ export class Tree {
   rebalance() {
     const values = [];
 
-    this.inOrderForEach((node) => values.push(node));
+    this.inOrderForEach((node) => values.push(node.data));
 
     this.root = this.buildTree(values);
   }
