@@ -10,7 +10,7 @@ console.log(tree.find(89));
 console.log(tree.find(15));
 
 tree.remove(90);
-console.log(tree.find(90));
+// console.log(tree.find(90));
 prettyPrint(tree.root);
 
 // tree.levelOrderForEach((node) => {
@@ -26,6 +26,8 @@ prettyPrint(tree.root);
 // });
 // console.log(tree.levelOrderForEach());
 
-tree.postOrderForEach((node) => {
-  console.log(node.data);
-});
+// tree.postOrderForEach((node) => {
+//   console.log(node.data);
+// });
+
+console.log(tree.height());

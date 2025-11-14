@@ -183,4 +183,14 @@ export class Tree {
 
     postOrder(this.root);
   }
+
+  height() {
+    const findHeight = (node) => {
+      if (node === null) return -1;
+
+      return Math.max(findHeight(node.left), findHeight(node.right)) + 1;
+    };
+
+    return findHeight(this.root);
+  }
 }
