@@ -141,14 +141,30 @@ export class Tree {
       throw new TypeError("preorderForEach requires a callback function");
     }
 
-    const preorder = (node) => {
+    const preOrder = (node) => {
       if (!node) return;
 
       callback(node);
-      preorder(node.left);
-      preorder(node.right);
+      preOrder(node.left);
+      preOrder(node.right);
     };
 
-    preorder(this.root);
+    preOrder(this.root);
+  }
+
+  inOrderForEach(callback) {
+    if (typeof callback !== "function") {
+      throw new TypeError("preorderForEach requires a callback function");
+    }
+
+    const inOrder = (node) => {
+      if (!node) return;
+
+      inOrder(node.left);
+      callback(node);
+      inOrder(node.right);
+    };
+
+    inOrder(this.root);
   }
 }
