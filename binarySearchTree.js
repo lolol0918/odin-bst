@@ -135,4 +135,20 @@ export class Tree {
     this._levelOrderForEachRecur(root.left, level + 1, res);
     this._levelOrderForEachRecur(root.right, level + 1, res);
   }
+
+  preOrderForEach(callback) {
+    if (typeof callback !== "function") {
+      throw new TypeError("preorderForEach requires a callback function");
+    }
+
+    const preorder = (node) => {
+      if (!node) return;
+
+      callback(node);
+      preorder(node.left);
+      preorder(node.right);
+    };
+
+    preorder(this.root);
+  }
 }

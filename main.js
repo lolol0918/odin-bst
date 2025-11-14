@@ -13,7 +13,11 @@ tree.remove(90);
 console.log(tree.find(90));
 prettyPrint(tree.root);
 
-tree.levelOrderForEach((node) => {
+// tree.levelOrderForEach((node) => {
+//   console.log(node.data);
+// });
+
+tree.preOrderForEach((node) => {
   console.log(node.data);
 });
 // console.log(tree.levelOrderForEach());
