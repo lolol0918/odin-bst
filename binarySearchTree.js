@@ -14,7 +14,6 @@ export class Tree {
   buildTree(array) {
     const sortedArray = [...new Set(array)].sort((a, b) => a - b);
 
-    console.log(sortedArray);
     return this.buildTreeRec(sortedArray, 0, sortedArray.length - 1);
   }
 
@@ -219,5 +218,28 @@ export class Tree {
     };
 
     return findDepth(this.root, value, 0);
+  }
+
+  isBalanced() {
+    let balanced = [true];
+
+    const height = (root) => {
+      if (!root) return 0;
+
+      const leftHeight = height(root.left);
+      if (balanced[0] === false) return 0;
+
+      const rightHeight = height(root.right);
+
+      if (Math.abs(leftHeight - rightHeight) > 1) {
+        balanced[0] = false;
+        return 0;
+      }
+
+      return 1 + Math.max(leftHeight, rightHeight);
+    };
+
+    height(this.root);
+    return balanced[0];
   }
 }

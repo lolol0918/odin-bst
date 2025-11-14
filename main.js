@@ -1,40 +1,13 @@
 import { Tree } from "./binarySearchTree.js";
-import { prettyPrint } from "./prettyPrint.js";
+// import { prettyPrint } from "./prettyPrint.js";
 
-// STEP 1: Create tree from random numbers < 100
+const tree = new Tree();
+tree.insert(20);
+tree.insert(10);
+tree.insert(30);
+tree.insert(5);
+tree.insert(15);
+tree.insert(25);
+tree.insert(35);
 
-const tree = new Tree([
-  42, 15, 89, 7, 63, 18, 27, 90, 54, 31, 73, 8, 44, 12, 66,
-]);
-console.log(tree.find(89));
-console.log(tree.find(15));
-
-tree.remove(90);
-// console.log(tree.find(90));
-prettyPrint(tree.root);
-
-// tree.levelOrderForEach((node) => {
-//   console.log(node.data);
-// });
-
-// tree.preOrderForEach((node) => {
-//   console.log(node.data);
-// });
-
-// tree.inOrderForEach((node) => {
-//   console.log(node.data);
-// });
-// console.log(tree.levelOrderForEach());
-
-// tree.postOrderForEach((node) => {
-//   console.log(node.data);
-// });
-
-console.log(tree.height(66));
-
-console.log(tree.height(42));
-
-console.log(tree.height(0));
-
-console.log(tree.depth(8));
-console.log(tree.depth(15));
+console.log(tree.isBalanced()); // should print true
