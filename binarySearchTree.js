@@ -242,4 +242,12 @@ export class Tree {
     height(this.root);
     return balanced[0];
   }
+
+  rebalance() {
+    const values = [];
+
+    this.inOrderForEach((node) => values.push(node));
+
+    this.root = this.buildTree(values);
+  }
 }
