@@ -30,4 +30,6 @@ prettyPrint(tree.root);
 //   console.log(node.data);
 // });
 
-console.log(tree.height());
+console.log(tree.height(66));
+
+console.log(tree.height(42));

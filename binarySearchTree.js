@@ -184,13 +184,26 @@ export class Tree {
     postOrder(this.root);
   }
 
-  height() {
+  height(value) {
+    const findNode = (node, value) => {
+      if (!node) return null;
+
+      if (value > node.data) return findNode(node.right, value);
+      if (value < node.data) return findNode(node.left, value);
+
+      return node;
+    };
+
     const findHeight = (node) => {
       if (node === null) return -1;
 
       return Math.max(findHeight(node.left), findHeight(node.right)) + 1;
     };
 
-    return findHeight(this.root);
+    const startNode = findNode(this.root, value);
+
+    if (!startNode) return null;
+
+    return findHeight(startNode);
   }
 }
