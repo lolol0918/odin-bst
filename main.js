@@ -21,7 +21,11 @@ prettyPrint(tree.root);
 //   console.log(node.data);
 // });
 
-tree.inOrderForEach((node) => {
+// tree.inOrderForEach((node) => {
+//   console.log(node.data);
+// });
+// console.log(tree.levelOrderForEach());
+
+tree.postOrderForEach((node) => {
   console.log(node.data);
 });
-// console.log(tree.levelOrderForEach());

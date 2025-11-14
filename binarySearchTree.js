@@ -167,4 +167,20 @@ export class Tree {
 
     inOrder(this.root);
   }
+
+  postOrderForEach(callback) {
+    if (typeof callback !== "function") {
+      throw new TypeError("preorderForEach requires a callback function");
+    }
+
+    const postOrder = (node) => {
+      if (!node) return;
+
+      postOrder(node.left);
+      postOrder(node.right);
+      callback(node);
+    };
+
+    postOrder(this.root);
+  }
 }
